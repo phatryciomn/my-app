@@ -1,5 +1,6 @@
 import { useState } from "react"
-import {View, Text, StyleSheet, Alert,} from "react-native"
+import {View, Text, StyleSheet} from "react-native"
+import { router } from "expo-router"
 
 import { Button } from "@/components/button"
 import { Input } from "@/components/input"
@@ -7,9 +8,8 @@ import { Input } from "@/components/input"
 export default function Index() {
   const [name, setName] = useState("")
 
-  function handleMenssage() {
-    const name = "Tião"
-    Alert.alert(`ce ta doido ${name}`)
+  function handleNext() {
+    router.navigate("/home")
   }
 
   function onChangeText(text: string) {
@@ -23,7 +23,7 @@ export default function Index() {
 
             <Input onChangeText={setName} />
 
-            <Button title= "Entrar" onPress={handleMenssage} />
+            <Button title= "Entrar" onPress={handleNext} activeOpacity={0.3} />
         </View>
     )
 }
